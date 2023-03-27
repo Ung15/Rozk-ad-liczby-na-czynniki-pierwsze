@@ -1,0 +1,32 @@
+namespace Rozklad
+{
+        class Class1
+    {
+       
+        [STAThread]
+        static void Main(string[] args)
+        {
+            int x, i, e;
+
+            //pobieranie wartosci od użytkownika
+            Console.WriteLine("Podaj wartosc x");
+            x = int.Parse(Console.ReadLine());
+
+            //rozkładanie na czynniki pierwsze
+            Console.Write("Czynniki pierwsze liczby " + x + " to:");
+            i = 2;
+            e = (int)Math.Sqrt(x);
+            while (i <= e)
+            {
+                while ((x % i) == 0)
+                {
+                    x /= i;
+                    e = (int)Math.Sqrt(x);
+                    Console.Write(" " + i);
+                }
+                i++;
+            }
+            if (x > 1) Console.Write(" " + x);
+        }
+    }
+}
